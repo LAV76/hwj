@@ -1,27 +1,35 @@
-//метод внутри класса сотрудника, сравнивающий две даты, представленные в виде трёх чисел гггг-мм-дд, без использования условного оператора.
-import java.util.Objects;
+// Перечисление с гендерами
+enum Gender {
+    MALE, FEMALE
+}
 
 public class Employee {
     private String name;
     private int year;
     private int month;
     private int day;
+    private Gender gender;
 
     // Конструктор
-    public Employee(String name, int year, int month, int day) {
+    public Employee(String name, int year, int month, int day, Gender gender) {
         this.name = name;
         this.year = year;
         this.month = month;
         this.day = day;
+        this.gender = gender;
     }
 
-    // Метод для сравнения двух дат (гггг-мм-дд)
-    public static int compareDates(int year1, int month1, int day1, int year2, int month2, int day2) {
-        return Objects.compare(year1 * 10000 + month1 * 100 + day1, year2 * 10000 + month2 * 100 + day2, Integer::compare);
+    // Геттеры и сеттеры для пола
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     @Override
     public String toString() {
-        return name + ": " + year + "-" + month + "-" + day;
+        return name + ": " + year + "-" + month + "-" + day + ", Gender: " + gender;
     }
 }

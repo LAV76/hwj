@@ -1,19 +1,17 @@
 public class Main {
     public static void main(String[] args) {
-        // Создаём сотрудников
-        RegularEmployee employee1 = new RegularEmployee("Alice", 1990, 5, 20, 50000);
-        RegularEmployee employee2 = new RegularEmployee("Bob", 1985, 8, 15, 45000);
-        Manager manager = new Manager("Charlie", 1975, 11, 5, 80000);
+        // Создаем сотрудников
+        Employee employee1 = new RegularEmployee("Alice", 1990, 5, 20, Gender.FEMALE, 50000);
+        Employee employee2 = new RegularEmployee("Bob", 1985, 8, 15, Gender.MALE, 45000);
+        Employee manager = new Manager("Charlie", 1975, 11, 5, Gender.MALE, 80000);
 
-        // Массив сотрудников, включая руководителя
+        // Массив сотрудников
         Employee[] employees = {employee1, employee2, manager};
 
-        // Повышаем зарплату всем сотрудникам, кроме руководителей
-        Manager.raiseSalary(employees, 10);
+        // Текущий праздник
+        Holiday todayHoliday = Holiday.NEW_YEAR;
 
-        // Выводим информацию о сотрудниках
-        for (Employee employee : employees) {
-            System.out.println(employee);
-        }
+        // Поздравляем сотрудников с праздником
+        Manager.congratulateEmployees(employees, todayHoliday);
     }
 }
